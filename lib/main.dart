@@ -13,7 +13,7 @@ final homeLatitudeKey = 'my_home_latitude';
 final homeLongitudeKey = 'my_home_longitude';
 
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-const kGoogleApiKey = 'YOUR_API_KEY';
+const kGoogleApiKey = 'api_key';
 GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: kGoogleApiKey);
 
 void main() async {
@@ -129,7 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
     var platformChannelSpecifics =
         NotificationDetails(null, IOSNotificationDetails());
     flutterLocalNotificationsPlugin
-        .show(0, 'Welcome home!', 'Don\'t forget to wash your hands!', platformChannelSpecifics)
+        .show(0, 'Welcome home!', 'Don\'t forget to wash your hands!',
+            platformChannelSpecifics)
         .then((result) {})
         .catchError((onError) {
       print('[flutterLocalNotificationsPlugin.show] ERROR: $onError');
